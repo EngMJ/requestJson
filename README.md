@@ -42,7 +42,8 @@
                 "pickGoodsNumber": '789789',
                 "createdDate": '2019-02-19',
                 "pickGoodsCompany": '深圳市富森供应链有限公司',
-                "cartonQuantity": '100箱',
+                "amount": '100',
+                "unit": '箱',
                 "status": '待受理',
                 "remarks": '无'
             },
@@ -52,7 +53,8 @@
                 "pickGoodsNumber": '785589',
                 "createdDate": '2019-02-20',
                 "pickGoodsCompany": '深圳市富森供应链有限公司',
-                "cartonQuantity": '100板',
+                "amount": '100',
+                "unit": '板',
                 "status": '已受理',
                 "remarks": '无'
             },
