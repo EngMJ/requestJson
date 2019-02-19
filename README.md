@@ -120,17 +120,74 @@
 
 > 2.5 删除提货明细
 
+- 请求参数说明
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+|idList|删除ID列表|数组字符串,传递多个被删除的ID数组|
+
 > 2.6 保存/提交提货明细
+
+- 请求参数说明
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+|saveStatus|保存状态|标记当前提货单保存状态/提交状态, 文本值 保存/提交|
+|id|id|id|
+|documentNumber|单据编号|单据编号|
+|pickGoodsCompany|提货公司|提货公司名称|
+|contacts|联系人|联系人名称|
+|pickGoodsAddress|提货地址|提货地址|
+|keyword|板数|板数|
+|keyword|箱数|箱数|
+|keyword|预计提货时间|预计提货时间|
+|keyword|备注|备注|
+|keyword|附件列表|附件列表, 数组字符串类型, 数组内存储多个文件ID|
+|keyword|提货明细|提货明细列表, 数组对象类型|
+|...|...|...|
+
+
+- 响应JSON结构
 
 ```
 {
-    "data": [
-        {
-            "id": 'id'
-        }
-    ]
+    "result": 'success',
+    "data": {
+        "total": '100',
+        "content": [
+            {
+                "id": '1',
+                "orderNumber": '6623123',
+                "productName": '电容',
+                "typeNumber": 'NK500',
+                "orderAmount": '600',
+                "mayPickGoodsAmount": '200',
+                "orderDate": '2019-02-20',
+                "unit": '箱',
+                "roughWeight": '500KG'
+            }
+        ]
+    }
 }
 ```
+
+- 响应参数说明
+
+|响应参数|名称|说明|
+| :----: | :----: | :----: |
+|msg|msg|信息|
+
+- 响应JSON结构
+
+```
+{
+    "result": 'success',
+    "msg": '保存/提交成功!'
+}
+```
+
 ##### 3.提货单详情
 ```
 {
