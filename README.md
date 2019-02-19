@@ -21,7 +21,7 @@
 |id|id|条目id|
 |orderNumber|订单号|订单号|
 |pickGoodsNumber|提货单号|提货单号|
-|createdDate|提货单创建时间|提货单创建时间|
+|createDate|提货单创建时间|提货单创建时间|
 |pickGoodsCompany|提货公司|提货公司|
 |cartonQuantity|板数/箱数|板数/箱数|
 |status|状态|订单状态|
