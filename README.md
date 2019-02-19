@@ -1,6 +1,6 @@
 ##  出口请求结构
 #### 物流派单
-> 1.提货单查询/列表
+##### 1.提货单查询/列表
 
 - 请求参数说明
 
@@ -62,7 +62,66 @@
     }
 }
 ```
-> 2.新增提货单
+##### 2.新增提货单
+> 2.1 获取单据ID
+
+> 2.2 获取单据编号
+
+> 2.3 提货公司列表
+
+> 2.4 提货明细列表
+
+- 请求参数说明
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+|pageSize|查询长度|一页显示多少条|
+|pageIndex|当前页数|当前页数|
+|keyword|关键字|订单号/品名关键字|
+
+- 响应参数说明
+
+|响应参数|名称|说明|
+| :----: | :----: | :----: |
+|id|id|条目id|
+|orderNumber|订单号|订单号|
+|productName|品名|品名|
+|typeNumber|型号|型号|
+|orderAmount|订单数量|订单数量|
+|mayPickGoodsAmount|可提货数量|可提货数量|
+|orderDate|订单日期|订单日期|
+|unit|单位|单位|
+|roughWeight|毛重|毛重|
+
+- 响应JSON结构
+
+```
+{
+    "result": 'success',
+    "data": {
+        "total": '100',
+        "content": [
+            {
+                "id": '1',
+                "orderNumber": '6623123',
+                "productName": '电容',
+                "typeNumber": 'NK500',
+                "orderAmount": '600',
+                "mayPickGoodsAmount": '200',
+                "orderDate": '2019-02-20',
+                "unit": '箱',
+                "roughWeight": '500KG'
+            }
+        ]
+    }
+}
+```
+
+> 2.5 删除提货明细
+
+> 2.6 保存/提交提货明细
+
 ```
 {
     "data": [
@@ -72,7 +131,7 @@
     ]
 }
 ```
-> 3.提货单详情
+##### 3.提货单详情
 ```
 {
     "data": [
