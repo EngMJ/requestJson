@@ -67,7 +67,75 @@
 
 ##### 2.2 获取单据编号
 
+- 请求参数说明
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+
+- 响应参数说明
+
+|响应参数|名称|说明|
+| :----: | :----: | :----: |
+|documentNumber|单据编号|单据编号|
+
+- 响应JSON结构
+
+```
+{
+    "result": 'success',
+    "documentNumber": '7878s87szzzzz'
+}
+```
+
+
 ##### 2.3 提货公司列表
+
+- 请求参数说明
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+
+- 响应参数说明
+
+|响应参数|名称|说明|
+| :----: | :----: | :----: |
+|id|提货公司列表内单项ID|提货公司列表内单项ID|
+|pickGoodsCompany|提货公司|单据编号|
+|contactsName|联系人姓名|联系人姓名|
+|contactsPhone|联系人电话|联系人电话|
+|pickGoodsAddress|提货地址|提货地址|
+|boardAmount|板数|板数|
+|boxAmount|箱数|箱数|
+
+- 响应JSON结构
+
+```
+{
+    "result": 'success',
+    "pickGoodsCompanyList": [
+        {
+            "id": '5565678',
+            "pickGoodsCompany": '深圳市xx公司',
+            "contactsName": '皮特',
+            "contactsPhone": '13332145646',
+            "pickGoodsAddress": '深圳市福田区xx中心',
+            "boardAmount": '50',
+            "boxAmount": '50'
+        },
+        {
+            "id": '556564545',
+            "pickGoodsCompany": '深圳市xx公司',
+            "contactsName": '皮特',
+            "contactsPhone": '13332145646',
+            "pickGoodsAddress": '深圳市福田区xx中心',
+            "boardAmount": '50',
+            "boxAmount": '50'
+        }
+    ]
+}
+```
 
 ##### 2.4 提货明细列表
 
@@ -138,7 +206,8 @@
 |id|id|id|
 |documentNumber|单据编号|单据编号|
 |pickGoodsCompany|提货公司|提货公司名称|
-|contacts|联系人|联系人名称|
+|contactsName|联系人姓名|联系人名称|
+|contactsPhone|联系人电话|联系人电话|
 |pickGoodsAddress|提货地址|提货地址|
 |boardAmount|板数|板数|
 |boxAmount|箱数|箱数|
@@ -163,7 +232,8 @@
         "id": '5565678',
         "documentNumber": '45647888',
         "pickGoodsCompany": '深圳市xx公司',
-        "contacts": '皮特',
+        "contactsName": '皮特',
+        "contactsPhone": '13332145646',
         "pickGoodsAddress": '深圳市福田区xx中心',
         "boardAmount": '50',
         "boxAmount": '50',
@@ -172,12 +242,12 @@
         "fileList": [
             {
                 fileId: 'zd5445668',
-                name: '订单确认书',
+                fileName: '订单确认书',
                 fileType: 'doc'
             },
             {
                 fileId: 'zd5445668',
-                name: '需求确认书',
+                fileName: '需求确认书',
                 fileType: 'doc'
             }
         ],
@@ -247,12 +317,12 @@
         "fileList": [
             {
                 fileId: 'zd5445668',
-                name: '订单确认书',
+                fileName: '订单确认书',
                 fileType: 'doc'
             },
             {
                 fileId: 'zd5445668',
-                name: '需求确认书',
+                fileName: '需求确认书',
                 fileType: 'doc'
             }
         ],
@@ -341,7 +411,52 @@
 
 ##### 2.2 获取单据编号
 
+- 请求参数说明
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+
+- 响应参数说明
+
+|响应参数|名称|说明|
+| :----: | :----: | :----: |
+|documentNumber|单据编号|单据编号|
+
+- 响应JSON结构
+
+```
+{
+    "result": 'success',
+    "documentNumber": '7878s87szzzzz'
+}
+```
+
 ##### 2.3 物流公司列表
+
+- 请求参数说明
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+
+- 响应参数说明
+
+|响应参数|名称|说明|
+| :----: | :----: | :----: |
+|logisticsCompanyList|物流公司列表|物流公司列表|
+
+- 响应JSON结构
+
+```
+{
+    "result": 'success',
+    "logisticsCompanyList": [
+        '顺丰物流',
+        '京东物流'
+    ]
+}
+```
 
 ##### 2.4 派货明细列表
 
@@ -657,10 +772,55 @@
 
 ##### 2.2 获取单据编号
 
+- 请求参数说明
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+
+- 响应参数说明
+
+|响应参数|名称|说明|
+| :----: | :----: | :----: |
+|documentNumber|单据编号|单据编号|
+
+- 响应JSON结构
+
+```
+{
+    "result": 'success',
+    "documentNumber": '7878s87szzzzz'
+}
+```
+
 ##### 2.3 新增垫资付款自动带出接口
 
-##### 2.4 保存/提交提货明细
+- 请求参数说明
 
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+
+- 响应参数说明
+
+|响应参数|名称|说明|
+| :----: | :----: | :----: |
+|bank|银行|银行|
+|bankAccount|账号|银行账号|
+
+- 响应JSON结构
+
+```
+{
+    "result": 'success',
+    "carryData": {
+        "bank": '中国建设银行',
+        "bankAccount": '465465456'
+    }
+}
+```
+
+##### 2.4 保存/提交提货明细
 
 - 请求参数说明
 
