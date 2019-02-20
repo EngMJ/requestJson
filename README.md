@@ -140,33 +140,44 @@
 |pickGoodsCompany|提货公司|提货公司名称|
 |contacts|联系人|联系人名称|
 |pickGoodsAddress|提货地址|提货地址|
-|keyword|板数|板数|
-|keyword|箱数|箱数|
-|keyword|预计提货时间|预计提货时间|
-|keyword|备注|备注|
-|keyword|附件列表|附件列表, 数组字符串类型, 数组内存储多个文件ID|
-|keyword|提货明细|提货明细列表, 数组对象类型|
-|...|...|...|
+|boardAmount|板数|板数|
+|boxAmount|箱数|箱数|
+|predictPickGoodsDate|预计提货时间|预计提货时间|
+|remarks|备注|备注|
+|fileList|附件列表|附件列表, 数组字符串类型, 数组内存储多个文件ID|
+|pickGoodsDetailList|提货明细|提货明细列表, 数组对象类型|
+|id|提货明细id|提货明细列表id|
+|orderNumber|订单号|提货明细列表内,单项的订单号|
+|productName|品名|提货明细列表内,单项的品名|
+|typeNumber|型号|提货明细列表内,单项的型号|
+|orderAmount|订单数量|提货明细列表内,单项的订单商品数量|
+|pickGoodsAmount|提货数量|提货明细列表内,单项的提货数量|
 
 
-- 响应JSON结构
+- 请求JSON结构
 
 ```
 {
-    "result": 'success',
-    "data": {
-        "total": '100',
-        "content": [
+    "savePickGoodsOrderData": {
+        "saveStatus": '保存/提交',
+        "id": '5565678',
+        "documentNumber": '45647888',
+        "pickGoodsCompany": '深圳市xx公司',
+        "contacts": '皮特',
+        "pickGoodsAddress": '深圳市福田区xx中心',
+        "boardAmount": '50',
+        "boxAmount": '50',
+        "predictPickGoodsDate": '2019-02-20',
+        "remarks": '备注',
+        "fileList": ['addixi11231', 'bbszz23334'],
+        "pickGoodsDetailList": [
             {
-                "id": '1',
-                "orderNumber": '6623123',
+                "id": 'xxx123123',
+                "orderNumber": '78989413',
                 "productName": '电容',
-                "typeNumber": 'NK500',
-                "orderAmount": '600',
-                "mayPickGoodsAmount": '200',
-                "orderDate": '2019-02-20',
-                "unit": '箱',
-                "roughWeight": '500KG'
+                "typeNumber": 'NHK200',
+                "orderAmount": '200',
+                "pickGoodsAmount": '150'
             }
         ]
     }
