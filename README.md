@@ -146,7 +146,7 @@
 |remarks|备注|备注|
 |fileList|附件列表|附件列表, 数组字符串类型, 数组内存储多个文件ID|
 |pickGoodsDetailList|提货明细|提货明细列表, 数组对象类型|
-|id|提货明细id|提货明细列表id|
+|id|提货明细id|提货明细列表,单项的id|
 |orderNumber|订单号|提货明细列表内,单项的订单号|
 |productName|品名|提货明细列表内,单项的品名|
 |typeNumber|型号|提货明细列表内,单项的型号|
