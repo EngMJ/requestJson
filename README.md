@@ -22,8 +22,9 @@
 |orderNumber|订单号|订单号|
 |pickGoodsNumber|提货单号|提货单号|
 |createDate|提货单创建时间|提货单创建时间|
+|predictPickGoodsTime|预计提货时间|预计提货时间|
 |pickGoodsCompany|提货公司|提货公司|
-|amount|数量|数量|
+|quantity|数量|数量|
 |unit|单位|单位|
 |status|状态|订单状态|
 |remarks|备注|备注|
@@ -41,8 +42,9 @@
                 "orderNumber": '6623123',
                 "pickGoodsNumber": '789789',
                 "createdDate": '2019-02-19',
+                "predictPickGoodsTime": '2019-02-20',
                 "pickGoodsCompany": '深圳市xx有限公司',
-                "amount": '100',
+                "quantity": '100',
                 "unit": '箱',
                 "status": '待受理',
                 "remarks": '无'
@@ -52,8 +54,9 @@
                 "orderNumber": '6623155',
                 "pickGoodsNumber": '785589',
                 "createdDate": '2019-02-20',
+                "predictPickGoodsTime": '2019-02-20',
                 "pickGoodsCompany": '深圳市xx有限公司',
-                "amount": '100',
+                "quantity": '100',
                 "unit": '板',
                 "status": '已受理',
                 "remarks": '无'
