@@ -1036,72 +1036,72 @@
 - 响应JSON结构
 ```
 {
-"result": "success",
-"data": {
-"orderId": "0004E0EC-0000-0000-0000-0000356201B2",
-"createDate": null,
-"customId": null,
-"fusenOrder": null,
-"exportBuyer": "NEW-BUND TECHNOLOGY CO., LIMITED",
-"supplier": null,
-"basa019Id": "5429CA6D-CAAD-4E59-9890-279C5C60CDB8",
-"orderCurrency": null,
-"basa020Id": "8700A79F-371D-4347-A7B3-10826518AB9F",
-"recWay": "2",
-"customOrder": null,
-"settlements": null,
-"status": null,
-"declDate": null,
-"amount": null,
-"declAmount": null,
-"cstamte": null,
-"logisticsStatus": null,
-"quality": null,
-"originalPacNum": null,
-"remark": null,
-"goodsinfo": [
-{
-"id": "E94E4F5C-3431-4B77-9F98-3772749294FD",
-"productName": "手机主板",
-"model": "S986-C",
-"parts": "内存型号：KM3H6001CM-B515",
-"unit": "个",
-"unitPrice": 97,
-"quality": 185,
-"recQty": null,
-"declareQty": null,
-"preSendQty": null,
-"declAmount": "17945.00000000",
-"brand": "无牌/安科利通讯设备(深圳)有限公司",
-"origin": "中国",
-"pacNum": "2",
-"oriNetWeight": "1.670",
-"oriGrossWeight": "4.750",
-"ordb001Id": "00034650-0000-0000-0000-000035624573"
-}
-],
-"file": [
-{
-"id": "B83E8405-697B-4BC0-A5EE-AB8EFE9C2EA8",
-"fileName": "格平.pdf",
-"fileId": "5c25a1e2ea1c9c6cabd31bd8",
-"orderId": "0004E0EC-0000-0000-0000-0000356201B2",
-"createDate": "2019-02-25T07:47:32.740+0000",
-"lastUpDate": "2019-02-25T07:47:32.740+0000",
-"fileType": "pdf",
-"fTypeName": ""
-}
-],
-"spare": [
-{
-"partname": "马达",
-"qty": "292.00",
-"unit": "个",
-"grossweight": "2.660",
-"netweight": "2.210",
-"boxnum": "3.00"
-}
-]
-}
+    "result": "success",
+    "data": {
+        "orderId": "0004E0EC-0000-0000-0000-0000356201B2",
+        "createDate": null,
+        "customId": null,
+        "fusenOrder": null,
+        "exportBuyer": "NEW-BUND TECHNOLOGY CO., LIMITED",
+        "supplier": null,
+        "basa019Id": "5429CA6D-CAAD-4E59-9890-279C5C60CDB8",
+        "orderCurrency": null,
+        "basa020Id": "8700A79F-371D-4347-A7B3-10826518AB9F",
+        "recWay": "2",
+        "customOrder": null,
+        "settlements": null,
+        "status": null,
+        "declDate": null,
+        "amount": null,
+        "declAmount": null,
+        "cstamte": null,
+        "logisticsStatus": null,
+        "quality": null,
+        "originalPacNum": null,
+        "remark": null,
+        "goodsinfo": [
+            {
+                "id": "E94E4F5C-3431-4B77-9F98-3772749294FD",
+                "productName": "手机主板",
+                "model": "S986-C",
+                "parts": "内存型号：KM3H6001CM-B515",
+                "unit": "个",
+                "unitPrice": 97,
+                "quality": 185,
+                "recQty": null,
+                "declareQty": null,
+                "preSendQty": null,
+                "declAmount": "17945.00000000",
+                "brand": "无牌/安科利通讯设备(深圳)有限公司",
+                "origin": "中国",
+                "pacNum": "2",
+                "oriNetWeight": "1.670",
+                "oriGrossWeight": "4.750",
+                "ordb001Id": "00034650-0000-0000-0000-000035624573"
+            }
+        ],
+        "file": [
+           {
+                "id": "B83E8405-697B-4BC0-A5EE-AB8EFE9C2EA8",
+                "fileName": "格平.pdf",
+                "fileId": "5c25a1e2ea1c9c6cabd31bd8",
+                "orderId": "0004E0EC-0000-0000-0000-0000356201B2",
+                "createDate": "2019-02-25T07:47:32.740+0000",
+                "lastUpDate": "2019-02-25T07:47:32.740+0000",
+                "fileType": "pdf",
+                "fTypeName": ""
+           }
+        ],
+        "spare": [
+            {
+                "partname": "马达",
+                "qty": "292.00",
+                "unit": "个",
+                "grossweight": "2.660",
+                "netweight": "2.210",
+                "boxnum": "3.00"
+            }
+        ]
+    }
 }
 ```
