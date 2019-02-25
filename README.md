@@ -906,6 +906,8 @@
 |响应参数|名称|说明|
 | :----: | :----: | :----: |
 |saveAdvancePaymentData|委托垫资付款数据|同新增委托垫资付款保存接口数据|
+|producer|制单人|制单人姓名|
+|produceTime|制单时间|制单时间|
 
 
 - 响应JSON结构
@@ -922,6 +924,8 @@
         "bankAccount": '45645646545777888',
         "predictGatheringTime": '2019-02-20',
         "remarks": '备注',
+        "producer": '小张',
+        "produceTime": '2019-02-20',
         "fileList": [
             {
                 fileId: 'zd5445668',
