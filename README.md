@@ -945,6 +945,10 @@
 ##  二.订单操作
 ### 1.订单详情查询
 
+- 请求地址:
+/api/export/order/orderinfo/object
+
+
 |请求参数|名称|说明|
 | :----: | :----: | :----: |
 |sessionId|sessionId|sessionId|
