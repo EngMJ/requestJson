@@ -938,5 +938,162 @@
 }
 ```
 
+##  二.订单操作
+### 1.订单详情查询
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+|id|订单主键|查询对应的订单明细|
+
+- (订单主表)响应参数说明
+
+|响应参数|名称|说明|
+| :----: | :----: | :----: |
+|orderId|订单主键|订单主键|
+|customId|客户Id|客户表主键|
+|fusenOrder|订单号|订单号|
+|orderId|订单号ID|订单号主键|
+|customOrder|客户单号|客户单号|
+|exportBuyer|海外客户|海外客户|
+|supplier|国内供应商|国内供应商|
+|basa019Id|目的国外键|目的国外键|
+|orderCurrency|订单币别|订单币别|
+|basa020Id|币别外键|币别外键|
+|recWay|收货方式|收货方式|
+|settlements|结算方式|结算方式|
+|status|订单状态|订单状态|
+|declDate|报关时间|报关时间|
+|amount|订单金额（原币）|订单金额（原币）|
+|declAmount|报关金额|报关金额|
+|cstamte|已报关金额|已报关金额|
+|logisticsStatus|物流状态|物流状态|
+|quality|总数量|总数量|
+|originalPacNum|总箱数|总箱数|
+|remark|备注|备注|
+|comfirmbookUrl|订单确认书|订单确认书|
+|orderrate|订单汇率|订单汇率 获取当天汇率|
+|customscrate|海关汇率|海关汇率 获取当月海关汇率|
+|busitype|业务类型|业务类型|
+|orderstatusnew|订单状态20|订单状态20|
+|orderstatus|订单状态30|订单状态30|
+|cwarehousename|报关仓库名称|报关仓库名称|
+
+- (订单明细)响应参数说明
+
+|响应参数|名称|说明|
+| :----: | :----: | :----: |
+|id|id|订单明细主键|
+|productName|品名|品名|
+|model|型号|型号|
+|parts|配件|配件|
+|unit|单位|单位|
+|unitPrice|单价|单价|
+|quality|数量|数量|
+|recQty|已收数量|已收数量|
+|declareQty|报关数量|报关数量|
+|preSendQty|发货数量|发货数量|
+|declAmount|报关金额|报关金额|
+|brand|品牌|品牌|
+|origin|产地|产地|
+|pacNum|箱数|箱数|
+|oriNetWeight|净重|净重|
+|oriGrossWeight|毛重|毛重|
+|ordb001Id|Paking明细外键|Paking明细外键|
+
+- (附件明细)响应参数说明
+
+|响应参数|名称|说明|
+| :----: | :----: | :----: |
+|id|文件主键ID|文件主键ID|
+|fileName|文件名称|文件名称|
+|fileId|文件ID|MongoDB 返回来的文件Id|
+|orderId|订单Id|订单Id|
+|createDate|创建时间|创建时间|
+|fileType|文件类型 (后缀)|文件类型 (后缀)|
+
+- (备品清单)响应参数说明
+
+|响应参数|名称|说明|
+| :----: | :----: | :----: |
+|id|id|备品清单ID|
+|productName|品名|品名|
+|qty|数量|数量|
+|unit|单位|单位|
+|grossweight|毛重|毛重|
+|netweight|净重|净重|
+|boxnum|箱数|箱数|
 
 
+- 响应JSON结构
+```
+{
+"result": "success",
+"data": {
+"orderId": "0004E0EC-0000-0000-0000-0000356201B2",
+"createDate": null,
+"customId": null,
+"fusenOrder": null,
+"exportBuyer": "NEW-BUND TECHNOLOGY CO., LIMITED",
+"supplier": null,
+"basa019Id": "5429CA6D-CAAD-4E59-9890-279C5C60CDB8",
+"orderCurrency": null,
+"basa020Id": "8700A79F-371D-4347-A7B3-10826518AB9F",
+"recWay": "2",
+"customOrder": null,
+"settlements": null,
+"status": null,
+"declDate": null,
+"amount": null,
+"declAmount": null,
+"cstamte": null,
+"logisticsStatus": null,
+"quality": null,
+"originalPacNum": null,
+"remark": null,
+"goodsinfo": [
+{
+"id": "E94E4F5C-3431-4B77-9F98-3772749294FD",
+"productName": "手机主板",
+"model": "S986-C",
+"parts": "内存型号：KM3H6001CM-B515",
+"unit": "个",
+"unitPrice": 97,
+"quality": 185,
+"recQty": null,
+"declareQty": null,
+"preSendQty": null,
+"declAmount": "17945.00000000",
+"brand": "无牌/安科利通讯设备(深圳)有限公司",
+"origin": "中国",
+"pacNum": "2",
+"oriNetWeight": "1.670",
+"oriGrossWeight": "4.750",
+"ordb001Id": "00034650-0000-0000-0000-000035624573"
+}
+],
+"file": [
+{
+"id": "B83E8405-697B-4BC0-A5EE-AB8EFE9C2EA8",
+"fileName": "格平.pdf",
+"fileId": "5c25a1e2ea1c9c6cabd31bd8",
+"orderId": "0004E0EC-0000-0000-0000-0000356201B2",
+"createDate": "2019-02-25T07:47:32.740+0000",
+"lastUpDate": "2019-02-25T07:47:32.740+0000",
+"fileType": "pdf",
+"fTypeName": ""
+}
+],
+"spare": [
+{
+"partname": "马达",
+"qty": "292.00",
+"unit": "个",
+"grossweight": "2.660",
+"netweight": "2.210",
+"boxnum": "3.00"
+}
+]
+}
+}
+```
