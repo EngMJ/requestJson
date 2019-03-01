@@ -1105,3 +1105,98 @@
 }
 }
 ```
+
+### 1.保存订单
+
+- 请求地址:
+/api/export/order/orderinfo/save
+
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+|orderId|订单主键|订单主键|
+|fusenOrder|订单号|订单号|
+|customOrder|客户单号|客户单号|
+|exportBuyer|海外客户|海外客户|
+|supplier|国内供应商|国内供应商|
+|basa019Id|目的国外键|目的国外键|
+|orderCurrency|订单币别|订单币别|
+|basa020Id|币别外键|币别外键|
+|settlements|结算方式|结算方式|
+|status|订单状态|订单状态|
+|amount|订单金额（原币）|订单金额（原币）|
+|remark|备注|备注|
+|productName|品名|品名|
+|model|型号|型号|
+|parts|配件|配件|
+|unit|单位|单位|
+|unitPrice|单价|单价|
+|quality|数量|数量|
+|declAmount|报关金额|报关金额|
+|brand|品牌|品牌|
+|origin|产地|产地|
+|pacNum|箱数|箱数|
+|oriNetWeight|净重|净重|
+|oriGrossWeight|毛重|毛重|
+|fileName|文件名称|文件名称|
+|fileId|文件ID|MongoDB 返回来的文件Id|
+|fileType|文件类型 (后缀)|文件类型 (后缀)|
+
+- 响应JSON结构
+
+```
+{
+    "orderId": "0004E0EC-0000-0000-0000-0000356201B4",
+    "fusenOrder": "FB190200136",
+    "exportBuyer": "NEW-BUND TECHNOLOGY CO., LIMITED",
+    "supplier": "KAILINUO(HK） TECHNOLOGY  CO., LIMITED",
+    "basa019Id": "5429CA6D-CAAD-4E59-9890-279C5C60CDB8",
+    "orderCurrency": "USD",
+    "basa020Id": "8700A79F-371D-4347-A7B3-10826518AB9F",
+    "recWay": "2",
+    "customOrder": "E2413LV(SKD)-01",
+    "settlements": "LC",
+    "settletype":"1",
+    "status": "0",
+    "amount": "10000.00",
+    "remark": "出口订单测试一",
+"goodsinfo": 
+    [
+        {
+        "productName": "手机主板",
+        "model": "S986-C",
+        "parts": "内存型号：KM3H6001CM-B515",
+        "unit": "个",
+        "unitPrice": 97,
+        "quality": 185,
+        "declAmount": "17945.00000000",
+        "brand": "无牌/安科利通讯设备(深圳)有限公司",
+        "origin": "中国",
+        "pacNum": "2",
+        "oriNetWeight": "1.670",
+        "oriGrossWeight": "4.750"
+        }
+    ],
+"file": 
+    [
+        {
+        "fileName": "格平.pdf",
+        "fileId": "5c25a1e2ea1c9c6cabd31bd8",
+        "fileType": "pdf"
+        }
+    ],
+"spare": 
+    [
+        {
+        "partname": "马达",
+        "qty": "292.00",
+        "unit": "个",
+        "grossweight": "2.660",
+        "netweight": "2.210",
+        "boxnum": "3.00"
+        }
+    ]
+}
+
+```
