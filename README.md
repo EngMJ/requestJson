@@ -9,7 +9,7 @@
 |sessionId|sessionId|sessionId|
 |pageSize|查询长度|一页显示多少条|
 |pageCount|当前页数|当前页数|
-|keyword|查询关键字|查询关键字|
+|gatherSelcondition|查询关键字|查询关键字|
 |startDate|起始日期|查询对应起始日期后的订单|
 |endDate|结束日期|查询对应结束日期前的订单|
 |status|查询状态|查询对应状态订单|
@@ -25,44 +25,63 @@
 |predictPickGoodsTime|预计提货时间|预计提货时间|
 |pickGoodsCompany|提货公司|提货公司|
 |quantity|数量|数量|
-|unit|单位|单位|
+|unit|单位|单位--暂时不需要因为现实箱号和板号了|
 |status|状态|订单状态|
 |remarks|备注|备注|
-
+|pickingType|提货类型|提货类型 0-有单 1-无单|
 - 响应JSON结构
 
 
 
 ```
 {
-    "result": 'success',
+"result": "success",
+"cause": "查询数据成功!",
     "data": {
-        "total": '100',
-        "content": [
+    "total": 17,
+        "list": [
             {
-                "id": '1',
-                "orderNumber": '6623123',
-                "pickGoodsNumber": '789789',
-                "createdDate": '2019-02-19',
-                "predictPickGoodsTime": '2019-02-20',
-                "pickGoodsCompany": '深圳市xx有限公司',
-                "quantity": '100',
-                "unit": '箱',
-                "status": '待受理',
-                "remarks": '无'
+            "id": "858960C2-2117-4959-9F87-5D19457B813F",
+            "orderNumber": "FB180600954",
+            "pickGoodsNumber": "TH180601004-01",
+            "createDate": "2018-06-22 18:07:51.02",
+            "predictPickGoodsTime": "2018-06-22 20时",
+            "pickGoodsCompany": "深圳市冠群电子有限公司",
+            "contactsName": null,
+            "contactsPhone": null,
+            "pickGoodsAddress": null,
+            "sumCartons": "93",
+            "sumBoard": "2",
+            "unit": null,
+            "status": "2",
+            "remarks": null,
+            "customId": null,
+            "basb001d6oid": null,
+            "pickingType": "0",
+            "prdList": null,
+            "aFList": null
             },
             {
-                "id": '2',
-                "orderNumber": '6623155',
-                "pickGoodsNumber": '785589',
-                "createdDate": '2019-02-20',
-                "predictPickGoodsTime": '2019-02-20',
-                "pickGoodsCompany": '深圳市xx有限公司',
-                "quantity": '100',
-                "unit": '板',
-                "status": '已受理',
-                "remarks": '无'
-            },
+            "id": "B81B2B07-EF96-4E69-829F-B48DA35D74DB",
+            "orderNumber": "FB180600191",
+            "pickGoodsNumber": "TH180600905-01",
+            "createDate": "2018-06-21 16:45:23.26",
+            "predictPickGoodsTime": "2018-06-21 18时",
+            "pickGoodsCompany": "深圳市冠群电子有限公司",
+            "contactsName": null,
+            "contactsPhone": null,
+            "pickGoodsAddress": null,
+            "sumCartons": "39",
+            "sumBoard": "2",
+            "unit": null,
+            "status": "2",
+            "remarks": null,
+            "customId": null,
+            "basb001d6oid": null,
+            "pickingType": "0",
+            "prdList": null,
+            "aFList": null
+            }
         ]
     }
 }
