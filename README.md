@@ -2,6 +2,10 @@
 ## 一.物流派单
 ### 1.提货单查询/列表
 
+- 请求地址: /api/export/logistics/pickingorder/list
+- 请求类型 POST
+
+
 - 请求参数说明
 
 |请求参数|名称|说明|
@@ -89,9 +93,10 @@
 ### 2.新增提货单
 ##### 2.1 获取单据ID
 
-##### 2.2 获取单据编号
+##### 2.2 获取单据编号---此接口在后台取号
 
-- 请求参数说明
+
+- 请求参数说明 
 
 |请求参数|名称|说明|
 | :----: | :----: | :----: |
@@ -115,6 +120,9 @@
 
 ##### 2.3 提货公司列表
 
+- 请求地址;/api/export/logistics/pickingcompany/list
+- 请求类型 GET
+
 - 请求参数说明
 
 |请求参数|名称|说明|
@@ -137,31 +145,24 @@
 
 ```
 {
-    "result": 'success',
-    "pickGoodsCompanyList": [
+    "result": "success",
+    "cause": "查询数据成功!",
+    "data":[
         {
-            "id": '5565678',
-            "pickGoodsCompany": '深圳市xx公司',
-            "contactsName": '皮特',
-            "contactsPhone": '13332145646',
-            "pickGoodsAddress": '深圳市福田区xx中心',
-            "boardAmount": '50',
-            "boxAmount": '50'
-        },
-        {
-            "id": '556564545',
-            "pickGoodsCompany": '深圳市xx公司',
-            "contactsName": '皮特',
-            "contactsPhone": '13332145646',
-            "pickGoodsAddress": '深圳市福田区xx中心',
-            "boardAmount": '50',
-            "boxAmount": '50'
+            "id": "0003742F-0000-0000-0000-000001FA2679",
+            "pickGoodsCompany": "深圳市冠群电子有限公司",
+            "contactsName": "罗文伟 13530581115",
+            "contactsPhone": "罗文伟 13530581115",
+            "pickGoodsAddress": "深圳市龙华新区观澜大富工业区鹏龙蟠高科技园A栋3楼"
         }
     ]
 }
 ```
 
 ##### 2.4 提货明细列表
+
+- 请求地址:/api/export/logistics/maypickingorder/list
+- 请求类型 POST
 
 - 请求参数说明
 
@@ -170,7 +171,7 @@
 |sessionId|sessionId|sessionId|
 |pageSize|查询长度|一页显示多少条|
 |pageCount|当前页数|当前页数|
-|keyword|关键字|订单号/品名关键字|
+|gatherSelcondition|关键字|订单号/品名关键字|
 
 - 响应参数说明
 
@@ -190,55 +191,115 @@
 
 ```
 {
-    "result": 'success',
+    "result": "success",
+    "cause": "查询数据成功!",
     "data": {
-        "total": '100',
-        "content": [
-            {
-                "id": '1',
-                "orderNumber": '6623123',
-                "productName": '电容',
-                "typeNumber": 'NK500',
-                "orderAmount": '600',
-                "mayPickGoodsAmount": '200',
-                "orderDate": '2019-02-20',
-                "unit": '箱',
-                "roughWeight": '500KG'
-            }
-        ]
+        "total": 1,
+        "list": [
+                  {
+                    "id": null,
+                    "orderNumber": "FB190200136",
+                    "productName": "手机主板",
+                    "typeNumber": "S986-C",
+                    "orderAmount": "185.00",
+                    "pickGoodsAmount": null,
+                    "mayPickGoodsAmount": "185.00",
+                    "boxAmount": null,
+                    "orderDate": null,
+                    "unit": "个",
+                    "roughWeight": "4.750",
+                    "orderId": "0004E0EC-0000-0000-0000-0000356201B3",
+                    "orderDetailId": "0D591FDD-2B5F-482A-B999-95CB1C69D9B3"
+                  }
+            ]
     }
 }
 ```
+##### 2.6 删除出口提货单
 
-##### 2.5 删除提货明细
-
-- 请求参数说明
-
-|请求参数|名称|说明|
-| :----: | :----: | :----: |
-|sessionId|sessionId|sessionId|
-|idList|删除ID列表|数组字符串,传递多个被删除的ID数组|
-
-##### 2.6 保存/提交提货明细
+- 请求地址;/api/export/logistics/pickingorder/delete
+- 请求类型 POST
 
 - 请求参数说明
 
 |请求参数|名称|说明|
 | :----: | :----: | :----: |
 |sessionId|sessionId|sessionId|
-|saveStatus|保存状态|标记当前提货单保存状态/提交状态, 文本值 保存/提交|
+|id|提货明细主键|提货明细主键|
+
+
+- 请求JSON结构
+```
+{
+"id":"C4E7CD44-F830-41F5-A55E-3F0E08BDA366", 
+"type":"0"
+}
+
+```
+- 响应JSON说明
+```
+{
+"result": "success",
+"cause": "删除数成功!",
+"data": "已删除1条数据"
+}
+```
+
+
+##### 2.6 删除提货明细
+
+- 请求地址;/api/export/logistics/pickingorderdetails/delete
+- 请求类型 POST
+
+- 请求参数说明
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+|id|提货明细主键|提货明细主键|
+|type|提货类型|0-有单,1-无单|
+
+- 请求JSON结构
+```
+{
+    "id":"2F175294-625F-463A-B14B-FB35599C824E,54847A3E-2E7E-4F3C-BCDD-29EFD7CDEFC1",
+    "type":"0"
+}
+
+```
+- 响应JSON说明
+```
+{
+    "result": "success",
+    "cause": "删除数成功!",
+    "data": "已删除2条数据"
+}
+```
+
+
+##### 2.7 保存/提交提货明细
+
+- 请求地址;/api/export/logistics/pickingorder/save
+- 请求类型 POST
+
+- 请求参数说明
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+|status|保存状态|标记当前提货单保存状态/提交状态, 文本值 0=保存/ 1=提交|
 |id|id|id|
-|documentNumber|单据编号|单据编号|
+|documentNumber|单据编号|单据编号--在新增的时候先去掉|
 |pickGoodsCompany|提货公司|提货公司名称|
 |contactsName|联系人姓名|联系人名称|
 |contactsPhone|联系人电话|联系人电话|
 |pickGoodsAddress|提货地址|提货地址|
-|boardAmount|板数|板数|
-|boxAmount|箱数|箱数|
+|sumBoard|板数|板数-->修改前boardAmount|
+|sumCartons|箱数|箱数-->修改前boxAmount|
 |predictPickGoodsDate|预计提货时间|预计提货时间|
 |remarks|备注|备注|
 |fileList|附件列表|附件列表, 数组字符串类型, 数组内存储多个文件ID|
-|pickGoodsDetailList|提货明细|提货明细列表, 数组对象类型|
+|prdList|提货明细|提货明细列表, 数组对象类型|
 |id|提货明细id|提货明细列表,单项的id|
 |orderNumber|订单号|提货明细列表内,单项的订单号|
 |productName|品名|提货明细列表内,单项的品名|
@@ -251,41 +312,38 @@
 
 ```
 {
-    "savePickGoodsOrderData": {
-        "saveStatus": '保存/提交',
-        "id": '5565678',
-        "documentNumber": '45647888',
-        "pickGoodsCompany": '深圳市xx公司',
-        "contactsName": '皮特',
-        "contactsPhone": '13332145646',
-        "pickGoodsAddress": '深圳市福田区xx中心',
-        "boardAmount": '50',
-        "boxAmount": '50',
-        "predictPickGoodsDate": '2019-02-20',
-        "remarks": '备注',
-        "fileList": [
-            {
-                fileId: 'zd5445668',
-                fileName: '订单确认书',
-                fileType: 'doc'
-            },
-            {
-                fileId: 'zd5445668',
-                fileName: '需求确认书',
-                fileType: 'doc'
-            }
-        ],
-        "pickGoodsDetailList": [
-            {
-                "id": 'xxx123123',
-                "orderNumber": '78989413',
-                "productName": '电容',
-                "typeNumber": 'NHK200',
-                "orderAmount": '200',
-                "pickGoodsAmount": '150'
-            }
-        ]
-    }
+    "status": "0",
+    "id": "DDD90720-2C71-4961-A3FF-1A0068922F37",
+    "pickGoodsCompany": "深圳市扫描王公司",
+    "contactsName": "皮特",
+    "contactsPhone": "13332145646",
+    "pickGoodsAddress": "深圳市福田区xx中心",
+    "orderNumber": "FB190200136",
+    "sumBoard": "50",
+    "sumCartons": "50",
+    "predictPickGoodsTime": "2018-06-22 20时",
+    "remarks": "备注",
+    "basb001d6oid": "4D158D6A-B736-4187-B42E-34E65CA704CC",
+    "pickGoodsDetailList": [
+        {
+        "id": "xxx123123",
+        "pickGoodsAmount": "1",
+        "orderId": "0004E0EC-0000-0000-0000-0000356201B3",
+        "orderDetailId": "0D591FDD-2B5F-482A-B999-95CB1C69D9B3"
+        }
+    ],
+    "fileList": [
+        {
+        "fileId": "zd5445668",
+        "fileName": "订单确认书",
+        "fileType": "doc"
+        },
+        {
+        "fileId": "zd5445668",
+        "fileName": "需求确认书",
+        "fileType": "doc"
+        }
+    ]
 }
 ```
 
@@ -299,8 +357,9 @@
 
 ```
 {
-    "result": 'success',
-    "msg": '保存/提交成功!'
+    "result": "success",
+    "cause": "保存数据成功!",
+    "data": "已保存1条数据"
 }
 ```
 
@@ -308,13 +367,16 @@
 
 ##### 3.1 获取提货单详情
 
+- 请求地址:api/export/logistics/pickingorder/object
+- 请求类型 GET
+
 - 请求参数
 
 |响应参数|名称|说明|
 | :----: | :----: | :----: |
 |sessionId|sessionId|sessionId|
-|pickGoodsOrderId|提货单ID|提货单ID|
-
+|id|提货单ID|提货单ID|
+|pickingtype|提货单ID|提货单ID 0:有单,1:无单|
 - 响应参数
 
 |响应参数|名称|说明|
@@ -326,41 +388,56 @@
 
 ```
 {
-    "result": 'success',
-    "savePickGoodsOrderData": {
-        "saveStatus": '保存/提交',
-        "id": '5565678',
-        "documentNumber": '45647888',
-        "pickGoodsCompany": '深圳市xx公司',
-        "contacts": '皮特',
-        "pickGoodsAddress": '深圳市福田区xx中心',
-        "boardAmount": '50',
-        "boxAmount": '50',
-        "predictPickGoodsDate": '2019-02-20',
-        "remarks": '备注',
-        "fileList": [
-            {
-                fileId: 'zd5445668',
-                fileName: '订单确认书',
-                fileType: 'doc'
-            },
-            {
-                fileId: 'zd5445668',
-                fileName: '需求确认书',
-                fileType: 'doc'
-            }
-        ],
-        "pickGoodsDetailList": [
-            {
-                "id": 'xxx123123',
-                "orderNumber": '78989413',
-                "productName": '电容',
-                "typeNumber": 'NHK200',
-                "orderAmount": '200',
-                "pickGoodsAmount": '150'
-            }
-        ]
-    }
+"result": "success",
+"cause": "查询数据成功!",
+"data": {
+"id": "858960C2-2117-4959-9F87-5D19457B813F",
+"orderNumber": null,
+"pickGoodsNumber": null,
+"createDate": null,
+"predictPickGoodsTime": "2018-06-22 20时",
+"pickGoodsCompany": "深圳市冠群电子有限公司",
+"contactsName": "罗文伟 13530581115",
+"contactsPhone": "罗文伟 13530581115",
+"pickGoodsAddress": "深圳市龙华新区观澜大富工业区鹏龙蟠高科技园A栋3楼",
+"sumCartons": "93",
+"sumBoard": "2",
+"unit": null,
+"status": null,
+"remarks": null,
+"customId": null,
+"basb001d6oid": null,
+"pickingType": null,
+ "prdList": [
+        {
+        "id": "95F46A19-98E6-4DDE-A0A9-00DD1EA4E571",
+        "orderNumber": "FB180600954",
+        "productName": "WCDMA/GSM手机",
+        "typeNumber": "S7（2G+16G）",
+        "orderAmount": "780.00",
+        "pickGoodsAmount": "780.00",
+        "mayPickGoodsAmount": null,
+        "boxAmount": null,
+        "orderDate": null,
+        "unit": null,
+        "roughWeight": null,
+        "orderId": null,
+        "orderDetailId": null
+        }
+  ],
+  "aFList": [
+        {
+        "id": "000E2339-0000-0000-0000-000026F05ED8",
+        "fileName": "富森出口货物确认单20180622-FB180600954.xls",
+        "fileId": "SHPC/10c7b7ed-6312-44c3-8ad9-135cb73d7b75.xls",
+        "orderId": "858960C2-2117-4959-9F87-5D19457B813F",
+        "createDate": "2018-06-22 18:08:51.0",
+        "lastUpDate": "2018-06-22 18:09:10.0",
+        "fileType": "xls",
+        "fTypeName": null
+        }
+  ]
+}
 }
 ```
 
