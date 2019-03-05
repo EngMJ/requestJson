@@ -28,8 +28,10 @@
 |createDate|提货单创建时间|提货单创建时间|
 |predictPickGoodsTime|预计提货时间|预计提货时间|
 |pickGoodsCompany|提货公司|提货公司|
-|quantity|数量|数量|
-| ~~unit~~ | ~~单位~~ |~~单位--暂时不需要因为现实箱号和板号了~~|
+|sumBoard|板数|板数|
+|sumCartons|箱数|箱数|
+|~~quantity~~|~~数量~~|~~数量~~|
+| ~~unit~~ | ~~单位~~ | ~~单位--暂时不需要因为现实箱号和板号了~~ |
 |status|状态|订单状态|
 |remarks|备注|备注|
 |pickingType|提货类型|提货类型 0-有单 1-无单|
