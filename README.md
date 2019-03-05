@@ -452,22 +452,22 @@
 |sessionId|sessionId|sessionId|
 |pageSize|查询长度|一页显示多少条|
 |pageCount|当前页数|当前页数|
-|keyword|查询关键字|查询关键字|
+|gatherSelcondition|查询关键字|查询关键字|
 |startDate|起始日期|查询对应起始日期后的订单|
 |endDate|结束日期|查询对应结束日期前的订单|
-|status|查询状态|查询对应状态订单|
+|status|查询状态|查询对应状态订单-->暂时没有添加这个搜索|
 
 - 响应参数说明
 
 |响应参数|名称|说明|
 | :----: | :----: | :----: |
 |id|id|条目id|
-|orderNumber|订单号|订单号|
-|deliveryGoodsNumber|派货单号|派货单号|
+|fusenOrder|订单号|订单号|
+|sendNo|派货单号|派货单号|
 |logisticsCompany|物流公司|物流公司|
-|predictDeliveryTime|预计派货时间|预计派货时间|
-|deliveryCompany|送达公司|送达公司|
-|deliveryMode|出货方式|出货方式|
+|fcDate|预计派货时间|预计派货时间|
+|sendCompany|送达公司|送达公司|
+|shipmentType|出货方式|出货方式|
 |status|状态|订单状态|
 |remarks|备注|备注|
 
@@ -475,32 +475,85 @@
 
 ```
 {
-    "result": 'success',
+    "result": "success",
+    "cause": "查询数据成功!",
     "data": {
-        "total": '100',
-        "content": [
+        "total": 64,
+        "list": [
             {
-                "id": '1',
-                "orderNumber": '6623123',
-                "deliveryGoodsNumber": '789789',
-                "logisticsCompany": '顺丰快递',
-                "predictDeliveryTime": '2019-02-19',
-                "deliveryCompany": '深圳市xx有限公司',
-                "deliveryMode": '送货',
-                "status": '待派货',
-                "remarks": '无'
+                "id": "3E22BEE7-4C18-4103-9042-EE1608FE8307",
+                "createDate": null,
+                "fusenOrder": "FB180600954",
+                "sendNo": "PH180610769",
+                "sendGoodOrder": null,
+                "logisticsCompany": null,
+                "fcTime": null,
+                "shipmentType": "送货",
+                "signOrder": null,
+                "bill": null,
+                "insure": null,
+                "custId": null,
+                "fcDate": null,
+                "basb001FkWl": null,
+                "shipFeeType": null,
+                "carFreight": null,
+                "rcvAmt": null,
+                "currency": null,
+                "status": "已派货",
+                "remark": "散交；入仓号：18060267AES；跟骐驷FB180601007/1008一起交；请安排6-23交仓，交仓后请提供签收单，提前联系；",
+                "customId": null,
+                "shipmentTypeFk": null,
+                "sendCompany": "深圳市冠群电子有限公司",
+                "linkMan": null,
+                "linkPhone": null,
+                "iDCard": null,
+                "provinceName": null,
+                "cityName": null,
+                "countyName": null,
+                "address": null,
+                "express_type": null,
+                "logisticsway": null,
+                "goods": null,
+                "file": null,
+                "total": null
             },
             {
-                "id": '2',
-                "orderNumber": '662312545',
-                "deliveryGoodsNumber": '74489789',
-                "logisticsCompany": '顺丰快递',
-                "predictDeliveryTime": '2019-02-19',
-                "deliveryCompany": '深圳市xx有限公司',
-                "deliveryMode": '自提',
-                "status": '正在派货',
-                "remarks": '无'
-            },
+                "id": "0D26A7D7-6813-4078-B05A-F79B4A9BE1D6",
+                "createDate": null,
+                "fusenOrder": "FB180600191",
+                "sendNo": "PH180610324",
+                "sendGoodOrder": null,
+                "logisticsCompany": null,
+                "fcTime": null,
+                "shipmentType": "送货",
+                "signOrder": null,
+                "bill": null,
+                "insure": null,
+                "custId": null,
+                "fcDate": null,
+                "basb001FkWl": null,
+                "shipFeeType": null,
+                "carFreight": null,
+                "rcvAmt": null,
+                "currency": null,
+                "status": "已派货",
+                "remark": "散交；入仓号：1806140018；跟骐驷FB180600972一起交；请安排6-22交仓，交仓后请提供签收单，提前联系；",
+                "customId": null,
+                "shipmentTypeFk": null,
+                "sendCompany": "深圳市冠群电子有限公司",
+                "linkMan": null,
+                "linkPhone": null,
+                "iDCard": null,
+                "provinceName": null,
+                "cityName": null,
+                "countyName": null,
+                "address": null,
+                "express_type": null,
+                "logisticsway": null,
+                "goods": null,
+                "file": null,
+                "total": null
+            }
         ]
     }
 }
@@ -510,7 +563,7 @@
 
 ##### 2.1 获取单据ID
 
-##### 2.2 获取单据编号
+##### 2.2 获取单据编号-->暂时不需要取
 
 - 请求参数说明
 
