@@ -29,7 +29,7 @@
 |predictPickGoodsTime|预计提货时间|预计提货时间|
 |pickGoodsCompany|提货公司|提货公司|
 |quantity|数量|数量|
-|unit|单位|单位--暂时不需要因为现实箱号和板号了|
+| ~~unit~~ | ~~单位~~ |~~单位--暂时不需要因为现实箱号和板号了~~|
 |status|状态|订单状态|
 |remarks|备注|备注|
 |pickingType|提货类型|提货类型 0-有单 1-无单|
@@ -96,7 +96,7 @@
 ##### 2.2 获取单据编号---此接口在后台取号
 
 
-- 请求参数说明 
+- 请求参数说明
 
 |请求参数|名称|说明|
 | :----: | :----: | :----: |
@@ -231,7 +231,7 @@
 - 请求JSON结构
 ```
 {
-"id":"C4E7CD44-F830-41F5-A55E-3F0E08BDA366", 
+"id":"C4E7CD44-F830-41F5-A55E-3F0E08BDA366",
 "type":"0"
 }
 
@@ -1257,7 +1257,7 @@
     "status": "0",
     "amount": "10000.00",
     "remark": "出口订单测试一",
-"goodsinfo": 
+"goodsinfo":
     [
         {
         "productName": "手机主板",
@@ -1274,7 +1274,7 @@
         "oriGrossWeight": "4.750"
         }
     ],
-"file": 
+"file":
     [
         {
         "fileName": "格平.pdf",
@@ -1282,7 +1282,7 @@
         "fileType": "pdf"
         }
     ],
-"spare": 
+"spare":
     [
         {
         "partname": "马达",
