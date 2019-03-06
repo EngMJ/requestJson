@@ -1284,7 +1284,7 @@
 |unit|单位|单位|
 |unitPrice|单价|单价|
 |quality|数量|数量|
-|declAmount|报关金额|报关金额|
+|~~declAmount~~|~~报关金额~~|~~报关金额~~|
 |brand|品牌|品牌|
 |origin|产地|产地|
 |pacNum|箱数|箱数|
