@@ -629,7 +629,16 @@
 ##### 2.4 可派货明细列表
 
 - 请求参数说明
+- 请求地址:/api/export/logistics/sendgoods/maylist
 
+- 请求参数JSON
+```
+{
+    "pageSize":0, 
+    "pageCount":2,
+    "gatherSelcondition":""
+}
+```
 |请求参数|名称|说明|
 | :----: | :----: | :----: |
 |sessionid|sessionId|sessionId|
