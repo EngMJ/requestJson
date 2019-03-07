@@ -626,51 +626,79 @@
 }
 ```
 
-##### 2.4 派货明细列表
+##### 2.4 可派货明细列表
 
 - 请求参数说明
 
 |请求参数|名称|说明|
 | :----: | :----: | :----: |
-|sessionId|sessionId|sessionId|
-|pageSize|查询长度|一页显示多少条|
-|pageCount|当前页数|当前页数|
-|keyword|关键字|订单号/品名关键字|
+|sessionid|sessionId|sessionId|
+|pageSize|当前页数|当前页数|
+|pageCount|查询长度|一页显示多少条|
+|gatherSelcondition|关键字|订单号/品名关键字|
 
 - 响应参数说明
 
 |响应参数|名称|说明|
 | :----: | :----: | :----: |
 |id|id|条目id|
-|orderNumber|订单号|订单号|
-|productName|品名|品名|
-|typeNumber|型号|型号|
-|orderAmount|订单数量|订单数量|
-|mayDeliveryGoodsAmount|可派货数量|可派货数量|
-|orderDate|订单日期|订单日期|
+|fusenOrder|订单号|订单号|
+|partName|品名|品名|
+|model|型号|型号|
+|quantity|订单数量|订单数量|
+|sendQty|派货数量|派货数量|
+|ksendQty|可派货数量|可派货数量|
+|createDate|订单日期|订单日期|
 |unit|单位|单位|
-|boxAmount|箱数|箱数|
-|roughWeight|毛重|毛重|
+|~~boxAmount~~|箱数|箱数|
+|grossWeight|毛重|毛重|
+|orderId|订单主键|订单主键|
+|goodsId|订单明细主键|订单明细主键|
 
 - 响应JSON结构
 
 ```
 {
-    "result": 'success',
+    "result": "success",
+    "cause": "查询数据成功!",
     "data": {
-        "total": '100',
-        "content": [
+        "total": 5,
+        "list": [
             {
-                "id": '1',
-                "orderNumber": '6623123',
-                "productName": '电容',
-                "typeNumber": 'NK500',
-                "orderAmount": '600',
-                "mayDeliveryGoodsAmount": '200',
-                "orderDate": '2019-02-20',
-                "unit": '箱',
-                "boxAmount": '200',
-                "roughWeight": '500KG'
+                "id": null,
+                "partName": "GSM手机",
+                "createDate": "2018-09-30 00:00:00.0",
+                "fusenOrder": "FB180900015",
+                "model": "Twist",
+                "quantity": "3000.00",
+                "sendQty": "3000.00",
+                "ksendQty": null,
+                "grossWeight": "753.000",
+                "carton": null,
+                "unit": "台",
+                "price": null,
+                "declDate": null,
+                "orderId": "000A09A6-0000-0000-0000-00002887D0CC",
+                "goodsId": "0001324F-0000-0000-0000-000028884DA9",
+                "sendOrderId": null
+            },
+            {
+                "id": null,
+                "partName": "WCDMA/GSM手机整套散件",
+                "createDate": "2018-09-13 00:00:00.0",
+                "fusenOrder": "FB180900006",
+                "model": "MS40S（屏4英寸）",
+                "quantity": "5000.00",
+                "sendQty": "5000.00",
+                "ksendQty": null,
+                "grossWeight": "1586.000",
+                "carton": null,
+                "unit": "台",
+                "price": null,
+                "declDate": null,
+                "orderId": "000282F7-0000-0000-0000-0000D1B5DFD0",
+                "goodsId": "00066B9A-0000-0001-0000-0000D1B61839",
+                "sendOrderId": null
             }
         ]
     }
