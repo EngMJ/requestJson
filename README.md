@@ -730,94 +730,76 @@
 |请求参数|名称|说明|
 | :----: | :----: | :----: |
 |sessionId|sessionId|sessionId|
-|saveStatus|保存状态|标记当前提货单保存状态/提交状态, 文本值 保存/提交|
-|id|id|id|
-|documentNumber|单据编号|单据编号|
-|deliveryMode|出货方式|出货方式 1. 自提 2. 快递 3. 送货 4. 物流|
-|oneselfPickGoodsCompany|自提公司|自提公司名称|
-|oneselfPickGoodsName|自提人姓名|自提人姓名|
-|oneselfPickGoodsPhone|自提人电话|自提人电话|
-|idNumber|身份证号|身份证号|
-|deliveryCompany|送达公司|送达公司名称|
-|contactsName|联系人姓名|联系人名称|
-|contactsPhone|联系人电话|联系人电话|
-|deliveryAddress|地址|送达地址|
-|freightMode|运费方式|运费方式,枚举值 1. 垫付 2. 代付 3. 第三方支付|
-|freightType|运费类型|运费类型,枚举值 1. 平均收费 2. 固定收费|
-|expressCardNumber|快递月结卡号|快递月结卡号|
-|logisticsCompany|物流公司|物流公司|
-|predictDeliveryGoodsDate|预计送货时间|预计送货时间|
-|receivableAmount|收款金额|收款金额|
-|Currency|币别|币别|
-|remarks|备注|备注|
-|expressReceipt|快递回单|快递回单, 枚举值 1/0|
-|attachBill|附发票/支票|附发票/支票, 枚举值 1/0|
-|insurance|保险|保险, 枚举值 1/0|
-|fileList|附件列表|附件列表, 数组字符串类型, 数组内存储多个文件ID|
-|fileName|文件名称|附件列表, 单个文件的文件名称|
-|fileId|文件ID|附件列表, 单个文件的文件ID|
-|deliveryGoodsDetailList|发货明细|发货明细列表, 数组对象类型|
-|id|提货明细id|提货明细列表,单项的id|
-|orderNumber|订单号|提货明细列表内,单项的订单号|
-|productName|品名|提货明细列表内,单项的品名|
-|typeNumber|型号|提货明细列表内,单项的型号|
-|orderAmount|订单数量|提货明细列表内,单项的订单商品数量|
-|deliveryGoodsAmount|派货数量|提货明细列表内,单项的派货数量|
-|roughWeight|毛重|提货明细列表内,单项的毛重|
+|id|id|派货单主键ID|
+|status|status|状态码 0-保存,1-提交|
+|fusenOrder|订单号|富森订单号|
+|shipmentType|出货方式|出货方式|
+|shipmentTypeFk|出货方式外键|出货方式外键|
+|sendCompany|送达公司|送达公司|
+|linkMan|联系人|联系人|
+|linkPhone|联系电话|联系电话|
+|provinceName|省|省|
+|cityName|市|市|
+|countyName|区|区|
+|address|详细地址|详细地址|
+|custId|快递月结卡号|快递月结卡号|
+|fcDate|预计送达日期|预计送达日期|
+|basb001FkWl|物流公司外键|物流公司外键|
+|shipFeeType|运费方式|运费方式|
+|~~carFreight~~|运费类型|运费类型|
+|id|文派货明细主键ID|文派货明细主键ID|
+|sendQty|本次派货数量|本次派货数量|
+|orderId|订单ID|订单主键ID|
+|goodsId|订单明细ID|订单明细主键ID|
+|price|本次派货数量|本次派货数量|
+|id|文件表主键ID|文件表主键ID|
+|fileName|文件名称|文件名称|
+|fileType|文件类型 (后缀)|文件类型 (后缀)|
+|fileId|MongoDB 返回来的文件Id|MongoDB 返回来的文件Id|
 
 
 - 请求JSON结构
 
 ```
 {
-    "saveDeliveryGoodsOrderData": {
-        "saveStatus": '保存/提交',
-        "id": '5565678',
-        "documentNumber": '45647888',
-        "deliveryMode": '快递',
-        "oneselfPickGoodsCompany": '深圳市xx公司',
-        "oneselfPickGoodsName": '王尼玛',
-        "oneselfPickGoodsPhone": '1335564984',
-        "idNumber": '335456465456454',
-        "deliveryCompany": '深圳市xx公司',
-        "contactsName": '皮特',
-        "contactsPhone": '1234156456',
-        "deliveryAddress": '深圳市福田区xx中心',
-        "freightMode": '垫付',
-        "freightType": '平均收费',
-        "expressCardNumber": 'cd546546545',
-        "logisticsCompany": '联运通物流公司',
-        "predictDeliveryGoodsDate": '2019-02-20',
-        "receivableAmount": '3000',
-        "Currency": 'USD',
-        "expressReceipt": '1',
-        "attachBill": '1',
-        "insurance": '1',
-        "remarks": '备注',
-        "fileList": [
-            {
-                fileId: 'zd5445668',
-                fileName: '订单确认书',
-                fileType: 'doc'
-            },
-            {
-                fileId: 'zd5445668',
-                fileName: '需求确认书',
-                fileType: 'doc'
-            }
-        ],
-        "deliveryGoodsDetailList": [
-            {
-                "id": 'xxx123123',
-                "orderNumber": '78989413',
-                "productName": '电容',
-                "typeNumber": 'NHK200',
-                "orderAmount": '200',
-                "deliveryGoodsAmount": '150',
-                "roughWeight": '200'
-            }
-        ]
-    }
+"id":"000293BC-0000-0000-0000-0000F07BD17B",
+"fusenOrder":"FA180613164",
+"shipmentType":"送货",
+"sendCompany":"深圳市思科博科技有限公司",
+"linkMan":"韦稳",
+"linkPhone":"18520624235、23001822",
+"provinceName":"广东省",
+"cityName":"深圳市",
+"countyName":"宝安区",
+"address":"宝安区西乡海滨科技大厦4楼401室,(碧湾大厦旁,宝源路与碧湾路交汇处)",
+"custId":null,
+"status":"0",
+"fcDate":"2018-08-17 20:00:00.000",
+"basb001FkWl":"000293BC-0000-0000-0000-0000F07BD17E",
+"shipFeeType":"1",
+"carFreight":3,
+"remark":"；请提前与收件人联系，谢谢！",
+"shipmentTypeFk":"000756FF-0000-0000-0000-0000AA3616F1",
+"goods":[{
+		  "sendQty":80000.00,
+		  "goodsId":"0007E261-0000-0002-0000-000001310E1A",
+		  "orderId":"0005B986-0000-0000-0000-000001301502",
+		  "sendOrderId":"F8113DFC-4287-4B26-AD57-04AAEA363B1C",
+		  "price":0.0137
+		},
+		{
+		  "sendQty":3200.00,
+		  "goodsId":"0007E261-0000-0003-0000-000001310E23",
+		  "orderId":"0005B986-0000-0000-0000-000001301502",
+		  "sendOrderId":"F8113DFC-4287-4B26-AD57-04AAEA363B1C",
+		  "price":0.1093
+		}
+		],
+"file":[{
+		"fileName":"QQ5截图20180504184811.png",
+		"fileType":"png",
+		"fileId":"5afbfce6ea1c9c7bd6a4def0"
+	  }]
 }
 ```
 
@@ -831,8 +813,9 @@
 
 ```
 {
-    "result": 'success',
-    "msg": '保存/提交成功!'
+    "result": "success",
+    "cause": "保存数据成功!",
+    "data": "已保存1条数据"
 }
 ```
 
