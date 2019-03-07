@@ -64,8 +64,8 @@
             "customId": null,
             "basb001d6oid": null,
             "pickingType": "0",
-            "prdList": null,
-            "aFList": null
+            "pickGoodsDetailList": null,
+            "fileList": null
             },
             {
             "id": "B81B2B07-EF96-4E69-829F-B48DA35D74DB",
@@ -85,8 +85,8 @@
             "customId": null,
             "basb001d6oid": null,
             "pickingType": "0",
-            "prdList": null,
-            "aFList": null
+            "pickGoodsDetailList": null,
+            "fileList": null
             }
         ]
     }
@@ -301,7 +301,7 @@
 |predictPickGoodsDate|预计提货时间|预计提货时间|
 |remarks|备注|备注|
 |fileList|附件列表|附件列表, 数组字符串类型, 数组内存储多个文件ID|
-|prdList|提货明细|提货明细列表, 数组对象类型|
+|pickGoodsDetailList|提货明细|提货明细列表, 数组对象类型|
 |id|提货明细id|提货明细列表,单项的id|
 |orderNumber|订单号|提货明细列表内,单项的订单号|
 |productName|品名|提货明细列表内,单项的品名|
@@ -410,7 +410,7 @@
 "customId": null,
 "basb001d6oid": null,
 "pickingType": null,
- "prdList": [
+ "pickGoodsDetailList": [
         {
         "id": "95F46A19-98E6-4DDE-A0A9-00DD1EA4E571",
         "orderNumber": "FB180600954",
@@ -427,7 +427,7 @@
         "orderDetailId": null
         }
   ],
-  "aFList": [
+  "fileList": [
         {
         "id": "000E2339-0000-0000-0000-000026F05ED8",
         "fileName": "富森出口货物确认单20180622-FB180600954.xls",
@@ -790,70 +790,124 @@
 ### 3.派货单详情
 
 - 请求参数
+- 请求地址:/api/export/logistics/sendgoods/object
+- 请求类型:GET
 
 |请求参数|名称|说明|
 | :----: | :----: | :----: |
-|sessionId|sessionId|sessionId|
-|pickGoodsOrderId|派货单ID|派货单ID|
+|sessionid|sessionId|sessionId|
+|id|派货单ID|派货单ID|
 
 - 响应参数
 
 |响应参数|名称|说明|
 | :----: | :----: | :----: |
-|saveDeliveryGoodsOrderData|派货单数据|同新增派货单中保存接口数据|
+|id|id|派货单主键ID|
+|createDate|创建时间|派货单创建时间|
+|sendNo|派货单|派货单|
+|shipmentType|出货方式|出货方式|
+|basb001FkWl|物流公司外键|物流公司外键|
+|shipFeeType|运费方式|运费方式|
+|remark|备注|备注|
+|sendCompany|送达公司|送达公司|
+|linkMan|联系人|联系人|
+|linkPhone|联系电话|联系电话|
+|iDCard|身份证|身份证|
+|provinceName|省|省|
+|cityName|市|市|
+|countyName|区|区|
+|address|详细地址|详细地址|
+|shipperType|发货方|发货方|
+|passNameType|清关|清关|
+|fcDate|预计送达日期|预计送达日期|
+|status|状态|状态|
+|custId|快递月结卡号|快递月结卡号|
+|id|id|派货单明细主键ID|
+|partName|品名|品名|
+|fusenOrder|富森订单号|富森订单号|
+|model|型号|型号|
+|quantity|订单数量|订单数量|
+|ksendQty|可发货数量|可发货数量|
+|sendQty|派货数量|派货数量|
+|grossWeight|可发货数量|可发货数量|
+|id|id|文件主键ID|
+|fileName|文件名称|文件名称|
+|fileId|fileId|MongoDB 返回来的文件Id|
 
 
 - 响应JSON结构
 
 ```
 {
-    "saveDeliveryGoodsOrderData": {
-        "saveStatus": '保存/提交',
-        "id": '5565678',
-        "documentNumber": '45647888',
-        "deliveryMode": '快递',
-        "oneselfPickGoodsCompany": '深圳市xx公司',
-        "oneselfPickGoodsName": '王尼玛',
-        "oneselfPickGoodsPhone": '1335564984',
-        "idNumber": '335456465456454',
-        "deliveryCompany": '深圳市xx公司',
-        "contactsName": '皮特',
-        "contactsPhone": '1234156456',
-        "deliveryAddress": '深圳市福田区xx中心',
-        "freightMode": '垫付',
-        "freightType": '平均收费',
-        "expressCardNumber": 'cd546546545',
-        "logisticsCompany": '联运通物流公司',
-        "predictDeliveryGoodsDate": '2019-02-20',
-        "receivableAmount": '3000',
-        "Currency": 'USD',
-        "expressReceipt": '1',
-        "attachBill": '1',
-        "insurance": '1',
-        "remarks": '备注',
-        "fileList": [
-            {
-                fileId: 'zd5445668',
-                fileName: '订单确认书',
-                fileType: 'doc'
-            },
-            {
-                fileId: 'zd5445668',
-                fileName: '需求确认书',
-                fileType: 'doc'
-            }
+    "result": "success",
+    "cause": "查询数据成功!",
+    "data": {
+        "id": "CF99BF73-3283-40B8-AA43-A16EBB876CC5",
+        "createDate": null,
+        "fusenOrder": null,
+        "sendNo": "PH180900005",
+        "sendGoodOrder": null,
+        "logisticsCompany": null,
+        "fcTime": null,
+        "shipmentType": "送货",
+        "signOrder": "0",
+        "bill": "0",
+        "insure": "0",
+        "custId": null,
+        "fcDate": null,
+        "basb001FkWl": "412ACD32-EA1E-4B69-91A3-5E729A2DF959",
+        "shipFeeType": "2",
+        "carFreight": "2",
+        "rcvAmt": null,
+        "currency": null,
+        "status": null,
+        "remark": "；",
+        "customId": null,
+        "shipmentTypeFk": null,
+        "sendCompany": "禾苗通信科技（香港）有限公司",
+        "linkMan": "0",
+        "linkPhone": "31195380",
+        "iDCard": null,
+        "provinceName": "香港",
+        "cityName": null,
+        "countyName": null,
+        "address": "香港九龙长沙湾道72号昌明大厦8楼B室",
+        "express_type": null,
+        "logisticsway": "送货",
+        "shipperType": "2",
+        "passNameType": "1",
+        "goods": [
+                    {
+                    "id": "FA511681-AC6F-401F-8888-79DC51EB2A7E",
+                    "partName": "4G手机整套散件",
+                    "fusenOrder": "FB180601152",
+                    "model": "Q402+（屏4.0寸）",
+                    "quantity": "10000.00",
+                    "sendQty": "10000.00",
+                    "ksendQty": "0.00",
+                    "grossWeight": "2882.000",
+                    "carton": null,
+                    "unit": null,
+                    "price": null,
+                    "declDate": null,
+                    "orderId": null,
+                    "goodsId": null,
+                    "sendOrderId": null
+                    }
         ],
-        "deliveryGoodsDetailList": [
-            {
-                "id": 'xxx123123',
-                "orderNumber": '78989413',
-                "productName": '电容',
-                "typeNumber": 'NHK200',
-                "orderAmount": '200',
-                "deliveryGoodsAmount": '150',
-                "roughWeight": '200'
-            }
-        ]
+        "file": [
+                    {
+                    "id": "4EED76AA-BB5D-42E7-94CF-E735FC75AA7B",
+                    "fileName": "test文件.txt",
+                    "fileId": "testfinlID412341234",
+                    "orderId": "CF99BF73-3283-40B8-AA43-A16EBB876CC5",
+                    "createDate": "2019-03-06 15:16:49.84",
+                    "lastUpDate": "2019-03-06 15:16:49.84",
+                    "fileType": "txt",
+                    "fTypeName": null
+                    }
+        ],
+        "total": null
     }
 }
 ```
