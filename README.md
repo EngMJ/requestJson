@@ -446,7 +446,8 @@
 ## 二.派货单
 ### 1.派货单列表
 
-
+- 请求地址:/api/export/logistics/sendgoods/list
+- 请求格式:POST
 - 请求参数说明
 
 |请求参数|名称|说明|
@@ -458,6 +459,17 @@
 |startDate|起始日期|查询对应起始日期后的订单|
 |endDate|结束日期|查询对应结束日期前的订单|
 |status|查询状态|查询对应状态订单-->暂时没有添加这个搜索|
+
+- 请求参数JSON
+```
+{
+    "pageSize":0, 
+    "pageCount":2,
+    "startDate":"",
+    "endDate":"",
+    "gatherSelcondition":""
+}
+```
 
 - 响应参数说明
 
