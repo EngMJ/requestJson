@@ -714,14 +714,51 @@
 }
 ```
 
-##### 2.5 删除派货明细
+##### 2.5.1 删除派货单
 
 - 请求参数说明
+- 请求地址:/api/export/logistics/sendgoodsobject/delete
+- 请求类型:POST
 
 |请求参数|名称|说明|
 | :----: | :----: | :----: |
 |sessionId|sessionId|sessionId|
-|idList|删除ID列表|数组字符串,传递多个被删除的ID数组|
+|id|派货单主键|数组字符串,传递多个被删除的ID数组|
+
+- 请求参数JSON格式
+{"id": "5AF49779-B40C-4E44-A190-29A6D6379C2F"}
+
+- 响应JSON结构
+```
+    {
+        "result": "success",
+        "cause": "删除数成功!",
+        "data": "已删除1条数据"
+    }
+```
+
+##### 2.5.2 删除派货明细
+
+- 请求参数说明
+- 请求地址:/api/export/logistics/sendgoodsdetails/delete
+- 请求类型:POST
+
+|请求参数|名称|说明|
+| :----: | :----: | :----: |
+|sessionId|sessionId|sessionId|
+|id|派货明细ID|数组字符串,传递多个被删除的ID数组|
+
+- 请求参数JSON格式
+{"id": "75EE0EC5-160D-4784-93B2-FC71DD49E6E8"}
+
+- 响应JSON结构
+```
+    {
+        "result": "success",
+        "cause": "删除数成功!",
+        "data": "已删除1条数据"
+    }
+```
 
 ##### 2.6 保存/提交派货明细
 
